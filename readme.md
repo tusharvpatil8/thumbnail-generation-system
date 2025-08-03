@@ -1,3 +1,8 @@
+<h2>Demo Video</h2>
+<video width="600" controls>
+  <source src="outputs/ThumbnailGenerationSystemOutput.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 # Thumbnail Generation System
 
 ## Effortlessly create and manage high-quality video and image thumbnails with our powerful platform.
