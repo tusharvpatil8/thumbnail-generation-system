@@ -1,14 +1,9 @@
-## Demo Video
-
-https://github.com/tusharvpatil8/thumbnail-generation-system/raw/main/outputs/ThumbnailGenerationSystemOutput.mp4
-
-
-https://github.com/user-attachments/assets/0ab2732f-3d89-4a3b-bc98-cbf1616797eb
-
-
 # Thumbnail Generation System
 
 ## Effortlessly create and manage high-quality video and image thumbnails with our powerful platform.
+
+## Demo Video
+https://github.com/user-attachments/assets/0ab2732f-3d89-4a3b-bc98-cbf1616797eb
 
 ## Setup
 1. Install Docker and Docker Compose
