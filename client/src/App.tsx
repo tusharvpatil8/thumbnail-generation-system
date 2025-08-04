@@ -5,8 +5,13 @@ import Auth from "./components/Auth"
 import UploadForm from "./components/UploadForm"
 import JobList from "./components/JobList"
 
+interface User {
+  token: string;
+  id: string;
+}
+
 function App() {
-  const [user, setUser] = useState(null)
+  const [user, setUser] = useState<User | null>(null)
 
   return (
     // Removed "container mx-auto p-4" to allow Auth.js's full-screen background to show
@@ -22,6 +27,6 @@ function App() {
       )}
     </div>
   )
-}
+};
 
-export default App
+export default App;

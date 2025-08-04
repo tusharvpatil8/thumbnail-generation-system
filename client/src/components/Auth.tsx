@@ -4,13 +4,17 @@ import { useState } from "react"
 import axios from "axios"
 import { Loader2Icon } from "lucide-react" // For loading spinner
 
-function Auth({ setUser }) {
+interface AuthProps {
+  setUser: (user: { token: string; id: string }) => void;
+}
+
+function Auth({ setUser }: AuthProps) {
   const [isLogin, setIsLogin] = useState(true)
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [loading, setLoading] = useState(false)
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setLoading(true)
 
@@ -25,17 +29,22 @@ function Auth({ setUser }) {
             "Content-Type": "application/json",
           },
         },
-      )
+      );
 
-      const { data } = response
+      const { data } = response;
       setUser({
         token: data.token,
-        id: JSON.parse(atob(data.token.split(".")[1])).userId,
-      })
+        id: JSON.parse(atob(data.token.split('.')[1])).userId,
+      });
     } catch (error) {
-      console.error("Auth error:", error)
-      console.error("Error response:", error.response)
-      alert(error.response?.data?.error || "An error occurred")
+      if (axios.isAxiosError(error)) {
+        console.error("Auth error:", error)
+        console.error("Error response:", error.response)
+        alert(error.response?.data?.error || "An error occurred")
+      } else {
+        console.error("Auth error:", error)
+        alert("An error occurred")
+      }
     } finally {
       setLoading(false)
     }
